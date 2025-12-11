@@ -22,7 +22,7 @@ df = pd.read_csv("product_master_catalog.csv")
 #
 
 
-
+#===========================================================================
 
 """Metrici de baza pe regiuni"""
 
@@ -59,12 +59,13 @@ pivot_stock = df.pivot_table(
 
 #print("Tabel pivot Numar de SKU-uri:\n",pivot_stock)
 #print("-"*40)
-
+#=========================================================================
 
 
 
 """Vizualizari Seaborn / Matplotlib"""
-#------------------------------------------------------------------
+#-------------------------------------------------------------------------
+
 #Bar CHART - SKU-uri per regiune:
 plt.figure(figsize=(11,6)) #Setam o marime pentru figura noastra
 plt.bar(total_sku_region.index, total_sku_region.values) #alegem genul de plot si ce plotam
@@ -75,6 +76,7 @@ plt.grid(axis='y', alpha=0.4) #Vrem sa fie trasat frumos ----- sa intelegem mai 
 plt.show()
 
 #-------------------------------------------------------------------------
+
 #Grouped bar chart - SKU.uri per regiune si category:
 pivot_count.plot(kind="bar",stacked=True, figsize=(13,6))
 plt.title("SKU-uri per regiune si categorie")
@@ -108,13 +110,14 @@ plt.xlabel("Stock Total")
 plt.ylabel("Category")
 plt.show()
 
+#==========================================================================
 
 """
  Analiza pe "Stock Risk"
  """
 
-#Definim criterii:
 
+#Definim criterii:
 #----------------------------------------------------------------------
 #Low-stock-sku:
 low_stock = df[df["stock_total_units"] < 20] #punem conditia
@@ -125,24 +128,25 @@ sku_low_stock = low_stock["sku"].nunique() #ii spunem ce vrem sa aflam
 high_stock = df[df["stock_total_units"] > 500] #conditia pt high
 sku_high_stock = high_stock["sku"].nunique()
 
-
 #--------------------------------------------------------------------
+
 #Calculam per regiune procentul:
 #--------------------------------------------------------------------
 #Low:
 sku_low_region = low_stock.groupby("region")["sku"].nunique()
 #procent:
 procent_low = (sku_low_region/ total_sku_region) * 100
-#====================================================================
+#-------------------------------------------------------------------------
 #high:
 sku_high_region = high_stock.groupby("region")["sku"].nunique()
 #procent:
 procent_high = (sku_high_region / total_sku_region) * 100
-#====================================================================
+#--------------------------------------------------------------------------
 
-#--------------------------------------------------------------------
+
 
 #Vizualizare Low procent
+#--------------------------------------------------------------------------
 plt.figure(figsize=(11, 6))
 procent_low.plot(kind="bar", title="Percent SKU Low Stock", color="blue")
 plt.ylabel("Percent SKU",rotation=0, labelpad=40)
@@ -150,7 +154,7 @@ plt.xlabel("Region")
 plt.xticks(rotation=0)
 plt.yticks(rotation=0)
 plt.show()
-#====================================================================
+#-------------------------------------------------------------------------
 #Vizualizare High procent:
 plt.figure(figsize=(11, 6))
 procent_high.plot(kind="bar", title="Percent SKU High Stock", color="red")
@@ -159,4 +163,4 @@ plt.xlabel("Region")
 plt.xticks(rotation=0)
 plt.yticks(rotation=0)
 plt.show()
-#-------------------------------------------------------------------
+#========================================================================
