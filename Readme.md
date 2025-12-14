@@ -34,13 +34,13 @@ Scopul este identificarea riscurilor de stock-out si a zonelor care necesita opt
 ## Vizualizari
 
 ### Procent SKU cu Stoc Ridicat (High Stock)
-![High Stock](High-procent.png)
+![High Stock](Graficuri/High-procent.png)
 
 ### Procent SKU cu Stoc Scazut (Low Stock)
-![Low Stock](Low-procent.png)
+![Low Stock](Graficuri/Low-procent.png)
 
 ### Distributie Regiune x Categorie (Heatmap)
-![Heatmap](Heatmap.png)
+![Heatmap](Graficuri/Heatmap.png)
 
 ---
 
