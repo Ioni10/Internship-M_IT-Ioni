@@ -73,8 +73,8 @@ plt.title("Numar de SKU-uri per regiune") #titlul graficului nostru
 plt.xlabel("Regiune", rotation=0, color="blue") #eticheta caracteristica pentru regiuni
 plt.ylabel("Numar SKU",rotation=0, labelpad=30, color="red")
 plt.grid(axis='y', alpha=0.4) #Vrem sa fie trasat frumos ----- sa intelegem mai bine
+plt.savefig("figura-Bar1.png")
 plt.show()
-
 #-------------------------------------------------------------------------
 
 #Grouped bar chart - SKU.uri per regiune si category:
@@ -86,8 +86,8 @@ plt.ylabel("Numar SKU",rotation=0, labelpad=30,color="blue")
 plt.legend(loc="upper left", bbox_to_anchor=(1,1))
 plt.tight_layout()
 plt.grid(axis='y', alpha=0.4)
+plt.savefig("Bar-color-sku.png")
 plt.show()
-
 #----------------------------------------------------------------------
 
 #Heatmap Pivot stock_total:
@@ -98,8 +98,8 @@ plt.xlabel("Category", color="Red")
 plt.xticks(rotation=5)
 plt.ylabel("Region",rotation=0, labelpad=20, color="Blue")
 plt.yticks(rotation=0)
+plt.savefig("Heatmap.png")
 plt.show()
-
 ##--------------------------------------------------------------------
 
 ##BoxPlot Stock_total_units per categorie:
@@ -108,8 +108,8 @@ sns.boxplot(data=df, x="stock_total_units", y="category")
 plt.title("Boxplot Variatia Stocurilor:")
 plt.xlabel("Stock Total")
 plt.ylabel("Category")
+plt.savefig("Boxplot.png")
 plt.show()
-
 #==========================================================================
 
 """
@@ -153,6 +153,7 @@ plt.ylabel("Percent SKU",rotation=0, labelpad=40)
 plt.xlabel("Region")
 plt.xticks(rotation=0)
 plt.yticks(rotation=0)
+plt.savefig("Low-procent.png")
 plt.show()
 #-------------------------------------------------------------------------
 #Vizualizare High procent:
@@ -162,5 +163,6 @@ plt.ylabel("Percent SKU",rotation=0, labelpad=40)
 plt.xlabel("Region")
 plt.xticks(rotation=0)
 plt.yticks(rotation=0)
+plt.savefig("High-procent.png")
 plt.show()
 #========================================================================
